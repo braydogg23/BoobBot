@@ -23,7 +23,7 @@ public class MessageHandler extends ListenerAdapter {
             Executors.newCachedThreadPool(r -> new Thread(threadGroup, r, "Command Pool"));
 
     static {
-        threadGroup.setMaxPriority(Thread.MAX_PRIORITY);
+        threadGroup.setMaxPriority(Thread.NORM_PRIORITY -1);
     }
 
     private final CommandHandler handler;

@@ -130,6 +130,9 @@ public class EventHandler extends ListenerAdapter {
     }
 
     public void onGuildJoin(GuildJoinEvent event) {
+        if (!EventHandler.getREADY()) {
+            return;
+        }
         net.dv8tion.jda.core.JDA jda = event.getJDA();
         Guild guild = event.getGuild();
         event.getJDA().asBot().getShardManager().setGame(Game.playing("bbhelp || bbinvite"));
@@ -164,6 +167,9 @@ public class EventHandler extends ListenerAdapter {
     }
 
     public void onGuildLeave(GuildLeaveEvent event) {
+        if (!EventHandler.getREADY()) {
+            return;
+        }
         net.dv8tion.jda.core.JDA jda = event.getJDA();
         Guild guild = event.getGuild();
         event.getJDA().asBot().getShardManager().setGame(Game.playing("bbhelp || bbinvite"));
